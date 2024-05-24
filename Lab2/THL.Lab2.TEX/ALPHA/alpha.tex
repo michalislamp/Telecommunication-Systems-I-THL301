@@ -1,0 +1,496 @@
+\newpage
+
+%%%%%%%%%%%%%%%%%  A1
+
+\begin{justify}
+    {\bf  Α.1} Να δημιουργήσετε παλμό \textlatin{SRRC} $\phi(t)$
+    με τιμές  $T = 10^{-3} sec$, $over=10$, 
+    $T\textsubscript{\textlatin{s}}=\frac{T}{over}$, $A=4$, και 
+    $\alpha = 0.5$.
+\end{justify}
+
+\begin{justify}
+    (10) Μέσω των συναρτήσεων \textlatin{fftshift} και
+    \textlatin{fft}, να υπολογίσετε το μέτρο του μετασχηματισμού
+    \textlatin{Fourier} της $\phi(t)$, $|\Phi(F)|$, 
+    σε $N\textsubscript{\latintext{f}}$ ισαπέχοντα σημεία στο διάστημα
+    $[-\frac{F\textsubscript{\textlatin{s}}}{2},\frac{F\textsubscript{\textlatin{s}}}{2}]$.
+    Να σχεδιάσετε τη φασματική πυκνότητα ενέργειας $|\Phi(F)|^{2}$
+    στον κατάληλλο άξονα συχνοτήτων με χρήσης της εντολής \textlatin{semiilogy}.
+\end{justify}
+
+\begin{justify}
+    {\bf Λύση:}\\\\
+    Έγινε χρήση της συνάρτησης $srrc\_pulse.m$ και
+    επιλέγοντας τιμή $N_f=4096$ (για να μην υπάρξουν
+    παραμορφώσεις).
+\end{justify}
+
+%%%%%%PLOT
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{ALPHA/images/a1.png} % Adjust width as neededfilename of your images
+\end{center}
+
+
+\begin{justify}
+    και ο κώδικας \textlatin{Matlab}:
+\end{justify}
+
+\vspace{-1cm}
+
+%%%%%%%%MATLAB code
+\textlatin{
+    \lstinputlisting[language=Matlab,]{ALPHA/Matlab/a1.1.m}
+} 
+
+\newpage
+
+%%%%%%%%%%%%%%%%%  A2
+
+\begin{justify}
+    {\bf Α.2} Να δημιουργήσετε ακολουθία $N=100$ ανεξάρτητων και
+    ισοπίθανων $bits \{b\textsubscript{0},...,b\textsubscript{Ν-1}\}$.
+    Χρησιμοποιώντας την απεικόνιση
+    \[ 0 \rightarrow +1, \]
+    \[ 1 \rightarrow -1, \]
+    να απεικονίσετε τα \textlatin{bits} σε σύμβολα 
+    Χ\textsuperscript{\textlatin{n}} για  $n=0,...,N-1$.\\
+    Να κατασκευάσετε την κυματομορφή:
+    \[
+        X(t) = \sum_{n=0}^{N-1} X\textsubscript{\textlatin{n}}\phi(t-nT).   
+    \]
+\end{justify}
+
+\begin{justify}
+    {\bf Λύση:}\\\\
+    Αρχικά δημιουργήθηκε η ακολουθία \textlatin{bits} 
+    και έπειτα μέσω της συνάρτησης $bits\_to\_2PAM$
+    μετατράπηκαν σε \textlatin{2-PAM} σύμβολα. 
+\end{justify}
+
+%%%%%%PLOT
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{ALPHA/images/a2.png} % Adjust width as neededfilename of your images
+\end{center}
+
+\newpage
+
+\begin{justify}
+    και ο κώδικας \textlatin{Matlab}:
+\end{justify}
+
+\vspace{-0.8cm}
+
+%%%%%%%%MATLAB code
+\textlatin{
+    \lstinputlisting[language=Matlab,]{ALPHA/Matlab/a2.m}
+} 
+
+
+\vspace*{2cm}
+
+
+%%%%%%%%%%%%%%%%%  A3
+\begin{justify}
+    Υποθέτοντας ότι το πλήθος των συμβόλων είναι άπειρο, αποδείξαμε
+    ότι η φασματική πυκνώτητα ισχύος του $X(t)$ είναι:
+    \[
+      S\textsubscript{Χ}{(F)} = \frac{\sigma^{2}\textsubscript{Χ}}{T}|\Phi(F)|^{2}.
+    \]
+    {\bf Α.3} (10) Με την χρήση των συναρτήσεων \textlatin{fft} και
+    \textlatin{fftshift} να υπολογίσετε το περιοδόγραμμα μιάς 
+    υλοποίησης της \textlatin{X(t)}:
+    \[
+        P\textsubscript{Χ}(F) = \frac{|F(X(t))|^{2}}{T\textsubscript{\textlatin{total}}}.  
+    \]
+    Να σχεδιάσετε το $P\textsubscript{Χ}(F)$ με χρήση 
+    \textlatin{plot} και \textlatin{semilogy}.
+\end{justify}
+
+\newpage
+
+\begin{justify}
+    {\bf Λύση:}\\\\
+    Παρακάτω παρουσιάζεται το περιοδόγραμμα $P_X(F)$
+    σε δεκαδική και λογαριθμική κλίμακα:
+\end{justify}
+
+%%%%%%PLOT
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{ALPHA/images/a3.1.png} % Adjust width as neededfilename of your images
+\end{center}
+
+
+\begin{justify}
+    και ο κώδικας \textlatin{Matlab}:
+\end{justify}
+
+\vspace{-0.8cm}
+
+%%%%%%%%MATLAB code
+\textlatin{
+    \lstinputlisting[language=Matlab,]{ALPHA/Matlab/a2.m}
+}
+
+\newpage
+
+\begin{justify}
+    (10) Να εκτιμήσετε τη φασματική πυκνότητα ισχύος υπολογίζοντας
+    αριθμιτικές μέσες τιμές πάνω σε K (ενδεικτικά, Κ=500) υλοποιήσεις
+    περιοδογραμμάτων. Να σχεδιάσετε σε κοινό \textlatin{semilogy}
+    την εκτίμηση και τη θεωριτική φασματική πυκνότητα ισχύος.
+\end{justify}
+
+\begin{justify}
+    {\bf Λύση:}\\\\
+    Έγιναν οι κατάληλλοι υπολογισμοί μέσω \textlatin{Matlab}
+    και η εκτίμηση που πραγματοποιήθηκε συγκρίνεται με την
+    θεωριτική φασματική πυκνότητα ισχύος η οποία προκύπτει
+    από τον παραπάνω τύπο.\\\\
+    Ο υπολογισμός της διασποράς $\sigma_X^2$ προκύπτει ως εξής:
+    \[
+        \sigma_X^2 = E[(X_n-E(X_n))^2]=E[X_n^2]=1
+    \]
+    Διότι: 
+    \[
+        E[X_n^2]=\sum x^2p_x=(1)^2\frac{1}{2}+(-1)^2\frac{1}{2}=1
+    \]	
+    Παρακάτω απεικονίζονται σε κοινό διάγραμμα ώστε να πραγματοποιηθεί
+    η σύγκρισή τους: 
+\end{justify}
+
+%%%%%%PLOT
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{ALPHA/images/a3.2.png} % Adjust width as neededfilename of your images
+\end{center}
+
+\newpage
+
+\begin{justify}
+    και ο κώδικας \textlatin{Matlab}:
+\end{justify}
+
+
+\vspace{-0.8cm}
+
+%%%%%%%%MATLAB code
+\textlatin{
+    \lstinputlisting[language=Matlab,]{ALPHA/Matlab/a3.2.m}
+}
+
+\newpage
+
+\begin{justify}
+    (10) Όσο αυξάνετε το Κ και το Ν, θα πρέπει η προσέγγιση να γίνεται
+    καλύτερη.Συμβαίνει αυτό στα πειράματά σας\textlatin{;} Μπορείτε να 
+    εξηγήσετε αυτό το φαινόμενο\textlatin{;}
+\end{justify}
+
+\begin{justify}
+    {\bf Λύση:}\\\\
+    Παρατηρούμε ότι για Κ=500 που χρησιμοποιήθηκε παραπάνω
+    η προσέγγιση είναι αρεκτά καλή καθώς οι διακυμάνσεις
+    των δύο γραφικών παρουσιάζουν μεγάλη ομοιότητα.\\\\
+    Χρησιμοποιώντας τον ίδιο κώδικα και αλλάζοντας τις τιμές
+    των παραμέτρων Ν και Κ προκύπτουν τα παρακάτω διαγράμματα:
+\end{justify}
+
+%%%%%%PLOT
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{ALPHA/images/a3.3.png} % Adjust width as neededfilename of your images
+\end{center}
+
+\begin{justify}
+    και ο κώδικας \textlatin{Matlab}:
+\end{justify}
+
+
+\vspace{-0.8cm}
+
+%%%%%%%%MATLAB code
+\textlatin{
+    \lstinputlisting[language=Matlab,]{ALPHA/Matlab/a3.3.m}
+}
+
+
+\begin{justify}
+    Όπως επιβεβαιώνεται και από τα παραπάνω διαγράμματα, όσο
+    αυξάνετε το Κ και το Ν, η προσέγγιση γίνεται καλύτερη.
+    Αυτο συμβαίνει διότι τα περιοδογράμματα ακολουθούν κανονική
+    κατανομή, όπως και τα \textlatin{bits} τα οποία
+    κωδικοποιούνται και καταλήγουμε στην $X(t)$, οπότε
+    όσο μεγαλύτερο γίνεται το δείγμα τόσο καλύτερη και πιο ακριβής
+    γίνεται	η προσέγγιση.
+\end{justify}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%  A4
+
+\begin{justify}
+    {\bf A.4} Χρησιμοποιώντας την απεικόνιση:
+    \[
+      00 \rightarrow +3, 
+    \]
+    \[
+      01 \rightarrow +1,
+    \]
+    \[
+      11 \rightarrow -1,
+    \]
+    \[
+      10 \rightarrow -3, 
+    \]
+    να κατασκευάσετε την ακολουθία 4-\textlatin{PAM} $X\textsubscript{\latintext{n}}$,
+    για $n=0,...,\frac{N}{2}-1$.
+\end{justify}
+
+\begin{justify}
+    {\bf Λύση:}\\\\
+    Αρχικά κατασκευάστηκε η συνάρτηση $bits\_to\_4PAM$: 
+\end{justify}
+
+\vspace{-0.8cm}
+
+%%%%%%%%MATLAB code
+\textlatin{
+    \lstinputlisting[language=Matlab,]{ALPHA/Matlab/bits_to4PAM.m}
+}
+
+
+\newpage
+
+\begin{justify}
+    Να κατασκευάσετε την κυματομορφή:
+    \[
+        X(t) = \sum_{n=0}^{\frac{N}{2}-1} X\textsubscript{\textlatin{n}}\phi(t-nT). 
+    \]
+    χρησιμοποιώντας την ίδια περίοδο $T$ με το ερώτημα {\bf Α.2}.
+\end{justify}
+
+
+\begin{justify}
+    {\bf Λύση:}\\\\
+    Όμοια με το ερώτημα {\bf Α.2}:
+\end{justify}
+
+%%%%%%PLOT
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{ALPHA/images/a4.png} % Adjust width as neededfilename of your images
+\end{center}
+
+
+\begin{justify}
+    (10) Να υπολογίσετε το περιοδόγραμμα και να εκτιμήσετε τη φασματική πυκνότητα
+    ισχύος μέσω αριθμητικών μέσων τιμών υλοποιήσεων περιοδογραμμάτων της $X(\textlatin{t})$. Να
+    σχεδιάσετε την πειραματική και την θεωρητική φασματική πυκνότητα ισχύος στο ίδιο
+    \textlatin{semilogy}. Τι παρατηρείτε\textlatin{;}
+\end{justify}
+
+\begin{justify}
+    {\bf Λύση:}\\\\
+    Παρομοίως με το ερώτημα {\bf Α.3}, πραγματοποιήθηκε η εκτίμηση
+    της φασματικής πυκνότητας ισχύος. Έπειτα, για να βρεθεί η 
+    αντίστοιχη θεωρητική φασματική πυκνότητα ισχύος, ξαναχρησιμοποιήθηκε
+    ο τύπος του {\bf Α.3}, με την διαφορά ότι η νέα
+    διασπορά $\sigma_X^2$ είναι:
+    \[
+         \sigma_X^2 = E(X_n^2)=\sum x^2p_x=(1)^2\frac{1}{4}+(-1)^2\frac{1}{4}
+         +(3)^2\frac{1}{4}+(-3)^2\frac{1}{4}=5
+    \]
+    Τέλος σχεδιάστηκαν και οι δύο σε ένα κοινό διάγραμμα με
+    λογαριθμική κλίμακα.
+\end{justify}
+
+%%%%%%PLOT
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{ALPHA/images/a4.1.png} % Adjust width as neededfilename of your images
+\end{center}
+
+
+
+\begin{justify}
+    Παρατηρούμε όμοια συμπεριφορά με το ερώτημα {\bf Α.3}, για το πλήθος
+    των περιοδογραμμάτων Κ=500 που χρησιμοποιήθηκαν για την εκτίμηση.
+\end{justify}
+
+\begin{justify}
+    και ο κώδικας \textlatin{Matlab}:
+\end{justify}
+
+\vspace{-0.8cm}
+
+%%%%%%%%MATLAB code
+\textlatin{
+    \lstinputlisting[language=Matlab,]{ALPHA/Matlab/a4.1.m}
+}
+
+
+
+\begin{justify}
+    (10) Πώς συγκρίνεται, ως προς το εύρος φάσματος και ως προς το μέγιστο πλάτος τιμών,
+    η φασματική πυκνότητα ισχύος της $X(\textlatin{t})$ σε σχέση με αυτή της $X(\textlatin{t})$ του βήματος {\bf A.2}\textlatin{;}
+    Μπορείτε να εξηγήσετε τα αποτελέσματα της σύγκρισης\textlatin{;}
+\end{justify}
+
+%%%%%%PLOT
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{ALPHA/images/a4.2.png} % Adjust width as neededfilename of your images
+\end{center}
+
+
+\begin{justify}
+    {\bf Λύση:}\\\\
+    Απεικονίσαμε σε κοινό \textlatin{plot} και \textlatin{semilogy}
+    τις φασματικές πυκνότητες ισχύος 2-\textlatin{PAM} και
+    4-\textlatin{PAM}. Παρατηρούμε ότι το εύρος φάσματος και των δύο
+    είναι ίδιο αφού $BW=\frac{1+\alpha}{2Τ}$, το οποίο εξαρτάται μόνο
+    από την συχνότητα $T$ και το $\alpha$. Στην συνέχεια, Παρατηρούμε
+    ότι το μέγιστο πλάτος των τιμών της 4-\textlatin{PAM} είναι σχεδόν
+    5 φορές μεγαλύτερο έναντι με αυτού της 2-\textlatin{PAM} και αυτό
+    συμβαίνει διότι η διασπορά της 4-\textlatin{PAM} είναι μεγαλύτερη.
+\end{justify}
+
+\begin{justify}
+    και ο κώδικας \textlatin{Matlab}:
+\end{justify}
+
+\vspace{-0.8cm}
+
+%%%%%%%%MATLAB code
+\textlatin{
+    \lstinputlisting[language=Matlab,]{ALPHA/Matlab/a4.2.m}
+}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%  A5
+
+\begin{justify}
+    {\bf A.5} (10) Να επαναλάβετε το βήμα Α.3, θέτοντας περίοδο συμβόλου $T' = 2T$ (να διατηρήσετε
+    την περίοδο δειγματοληψίας $T_s$ ίση με αυτή των προηγούμενων βημάτων, άρα, θα πρέπει
+    να διπλασιάσετε την παράμετρο \textlatin{over}).
+\end{justify}
+
+\begin{justify}
+    {\bf Λύση:}\\\\
+    Ακολουθήθηκε η ίδια διαδικασία με το ερώτημα {\bf Α.3}, 
+    με $Τ'=2\cdot10^-3$ και $over'=20$. Παρακάτω παρουσιάζεται το 
+    περιοδόγραμμα $P_X(F)$ σε δεκαδική και λογαριθμική κλίμακα:
+\end{justify}
+
+%%%%%%PLOT
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{ALPHA/images/a5.1.png} % Adjust width as neededfilename of your images
+\end{center}
+
+\vspace{-0.8cm}
+
+%%%%%%%%MATLAB code
+\textlatin{
+    \lstinputlisting[language=Matlab,]{ALPHA/Matlab/a5.1.m}
+}
+
+
+\begin{justify}
+    Και  όμοια πάλι με το ερώτημα
+    {\bf Α.3}, προκύπτει το κοινό διάγραμμα για την θεωρητική και την 
+    εκτιμόμενη φασματική πυκνότητα ισχύος:
+\end{justify}
+
+
+%%%%%%PLOT
+\begin{center}
+    \centering
+    \includegraphics[width=0.6\textwidth]{ALPHA/images/a5.2.png} % Adjust width as neededfilename of your images
+\end{center}
+
+\vspace{-0.8cm}
+
+%%%%%%%%MATLAB code
+\textlatin{
+    \lstinputlisting[language=Matlab,]{ALPHA/Matlab/a5.2.m}
+}
+
+\newpage
+
+\begin{justify}
+    Τέλος χρησιμοποιώντας διαφορετικά Κ και Ν προκύπτουν τα παρακάτω
+    διαγράμματα:
+\end{justify}
+
+%%%%%%PLOT
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{ALPHA/images/a5.3.png} % Adjust width as neededfilename of your images
+\end{center}
+
+\begin{justify}
+    (5) Τι παρατηρείτε σχετικά με το εύρος φάσματος 
+    των κυματομορφών σε αυτή την
+    περίπτωση σε σχέση με αυτό των κυματομορφών 
+    του βήματος Α.3\textlatin{;} Μπορείτε να εξηγήσετε το φαινόμενο\textlatin{;}
+\end{justify}
+
+\begin{justify}
+    {\bf Λύση:}\\\\
+    Κάνοντας κοινό \textlatin{plot} των περιοδογραμμάτων των 2
+    ερωτημάτων:
+\end{justify}
+
+%%%%%%PLOT
+\begin{center}
+    \centering
+    \includegraphics[width=0.6\textwidth]{ALPHA/images/a5.4.png} % Adjust width as neededfilename of your images
+\end{center}
+
+
+
+\begin{justify}
+    Γίνεται εύκολα αντιληπτό ότι για $T'=2T$ μείωνεται εμφανώς το
+    το εύρος φάσματος, πράγμα που επιβεβαιώνεται και από την θεωρία αφού
+    $BW=\frac{1+\alpha}{2Τ}$.
+\end{justify}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  A6
+
+\begin{justify}
+    {\bf Α.6} (2.5) Αν θέλατε να στείλετε δεδομένα
+    όσο το δυνατό ταχύτερα έχοντας διαθέσιμο το ίδιο εύρος
+    φάσματος, θα επιλέγατε \textlatin{2-PAM} ή \textlatin{4-PAM},
+    και γιατί\textlatin{;}    
+\end{justify}
+
+\begin{justify}
+    {\bf Λύση:}\\\\
+    Για να επιτευχθεί η ταχύτερη διάδοση δεδομένων έχοντας διαθέσιμο
+    το ίδιο εύρος φάσματος, θα επιλέγαμε \textlatin{4-PAM} καθώς 
+    αντιστοιχίζονται δύο \textlatin{bits} ανα σύμβολο σε αντίθεση
+    με το \textlatin{2-PAM} που αντιστοιχίζεται ένα. Επομένως στέλνονται
+    περισσότερα \textlatin{bits} πληροφορίας στον ίδιο χρόνο.
+\end{justify}
+
+\begin{justify}
+    (2.5) Αν το διαθέσιμο εύρος φάσματος είναι πολύ ακριβό,
+    θα επιλέγατε περίοδο συμβόλου $Τ$ ή $Τ'=2T$, και γιατί\textlatin{;}
+\end{justify}
+
+\begin{justify}
+    {\bf Λύση:}\\\\
+    Αν το διαθέσιμο εύρος φάσματος είναι πολύ ακριβό, θα επιλέγαμε
+    περίοδο συμβόλου $Τ'=2T$ καθώς, όπως δείξαμε και στο ερώτημα
+    {\bf Α.5}, θα έδινε μικρότερο εύρος φάσματος και έτσι θα εξοικονομούνταν
+    στην μετάδοση το μισό φάσμα.
+\end{justify}
+
