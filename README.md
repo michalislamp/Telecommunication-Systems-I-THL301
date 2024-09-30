@@ -2,4 +2,6 @@ Labs for Telecommunication Systems I course during academic year 2023-2024 with 
 
 1st Lab: 130/130.
 
-2st Lab: 100/100.
+2nd Lab: 100/100.
+
+3rd Lab: 100/100.
